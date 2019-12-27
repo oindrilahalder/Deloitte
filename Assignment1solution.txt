@@ -1,0 +1,71 @@
+Create a table called Employee with the following Columns  and perform the following operations:-
+------------------------------------------------------------------------------------------------------------
+
+EmployeeID
+EmployeeName
+EmployeeAddress
+DOB
+DOJ
+Salary
+
+
+
+a.) Insert five records
+create table Employee
+(
+EmployeeID integer,
+EmployeeName varchar(20),
+EmployeeAddress varchar(20),
+DOB date,
+DOJ date,
+Salary integer
+)
+drop table Employee
+insert into Employee values(101,'Tufail','Pune','10-06-1997','11-06-2011',20000);
+insert into Employee values(102,'Ahmed','Mumbai','11-05-1996','11-06-2012',30000);
+insert into Employee values(103,'Khan','Bangalore','12-04-1995','11-06-2013',40000);
+insert into Employee values(104,'Tarun','Agra','10-03-1994','11-06-2014',50000);
+insert into Employee values(105,'Neha','Calcuta','11-02-1993','11-06-2015',60000);
+..........................................................................................
+b) Retrieve all the records
+select * from Employee
+
+..........................................................................................
+
+c) Retrieve the Employee name whose salary is greater than 20000
+select EMPLOYEENAME from Employee where salary>20000
+
+..........................................................................................
+d) Retrieve the Employee name whose address contains 'a' or 'p' or 'r'  as the last character
+
+select * from Employee where EMPLOYEEADDRESS  like ('%a') or EMPLOYEEADDRESS like ('%P') or EMPLOYEEADDRESS like('%r')
+
+.....................................................................................................................
+
+ 
+e) Increase the Salary of all the Employee by 20%
+update employee
+set salary= salary+ 0.2*(salary)
+..........................................................................................
+f) Delete all the employee records whose salary is less than 5000
+delete employee
+where salary<5000
+..........................................................................................
+g) Add another column Email and update the contents.
+ALTER TABLE Employee ADD EMAIL varchar(20);
+
+update Employee
+set EMAIL='tufail@gmail.com'
+where EMPLOYEEID=101
+update Employee
+set EMAIL='tarun@gmail.com'
+where EMPLOYEEID=104
+
+update Employee
+set EMAIL='khan@gmail.com'
+where EMPLOYEEID=103
+
+update Employee
+set EMAIL='neha@gmail.com'
+where EMPLOYEEID=105
+
