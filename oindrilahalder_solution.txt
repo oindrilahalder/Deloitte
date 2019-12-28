@@ -64,7 +64,8 @@ Hint:  To generate passcode, join the last three digits of customer id and last 
 <br/>C-001                   1234567898765432                0015432
 <br/>Use ""PASSCODE"" as alias name for displaying the passcode."
 
-solution:
+solution:Select customer_id,account_noo, concat(substring(customer_id,-3), substring(account_no,-4)) as PASSCODE
+FROM ACCOUNT_INFO
 
 8.*Write a query which will display the customer id, customer name, date of birth, Marital Status, Gender, Guardian name, 
 contact no and email id of the customers whose gender is male 'M' and marital status is MARRIED.
