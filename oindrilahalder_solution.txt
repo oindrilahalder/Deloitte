@@ -32,11 +32,10 @@ WHERE a.account_no IS NOT NULL
 <BR/> 
 Use ""UNIQUE_REF_STRING"" as alias name for displaying the unique reference string."
 
-solution:Select customer_id, customer_name, gender, marital_status from CUSTOMER_PERSONAL_INFO
-order by customer_id desc
-alter table CUSTOMER_PERSONAL_INFO
-add UNIQUE_REF_STRING varchar(20)
-update CUSTOMER_PERSONAL_INFO set UNIQUE_REF_STRING = concat(customer_name || '_',gender || '_')
+solution:Select customer_id, customer_name, gender, marital_status,customer_name||'_'||gender ||'_'||marital_status as "UNIQUE_REF_STRING" 
+ from CUSTOMER_PERSONAL_INFO 
+ order by customer_id desc;
+
 
 
 
@@ -64,7 +63,7 @@ Hint:  To generate passcode, join the last three digits of customer id and last 
 <br/>C-001                   1234567898765432                0015432
 <br/>Use ""PASSCODE"" as alias name for displaying the passcode."
 
-solution:Select customer_id,account_noo, concat(substring(customer_id,-3), substring(account_no,-4)) as PASSCODE
+solution:Select customer_id,account_no, substr(customer_id,-3)||substring(account_no,-4) as PASSCODE
 FROM ACCOUNT_INFO
 
 8.*Write a query which will display the customer id, customer name, date of birth, Marital Status, Gender, Guardian name, 
@@ -135,11 +134,9 @@ and initial_deposit= (select max(c.initial_deposit) from account_info c)
 
 15.*Write a query to display the customer id, customer name, account number, account type, interest, bank name 
 and initial deposit amount of the customers who are getting maximum interest rate.
- Solution: Select a.account_no,p.customer_id,p.customer_name,a.account_type,a.initial_deposit, a.interest 
+ Solution: Select a.account_no,p.customer_id,p.customer_name,a.account_type,a.initial_deposit, a.interest, b.bank_name
 from ACCOUNT_INFO a, CUSTOMER_PERSONAL_INFO p
 INNER JOIN BANK_INFO c
-ON a.ifsc_code=c.ifsc_code
-WHERE interest=(select max(c.initial_deposit) from account_info c)
-
-
+ON c.ifsc_code=a.ifsc_code
+WHERE interest=(select max(d.interest) from account_info d)
 
