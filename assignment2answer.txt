@@ -1,0 +1,69 @@
+Create a table called Employee with the following Columns  and following Constrains :-
+------------------------------------------------------------------------------------------------------------
+
+Assignment 1:
+
+a. EmployeeID should not be duplicate
+EmployeeName should not be null
+EmployeeAddress  :- should not be Newyork, London and Paris
+Salary : should be between 20000 and 30000
+CompanyAddress should be default as ASV Suntech Park
+
+create table employee
+(
+EmployeeID integer constraint pk primary key,
+EmployeeName varchar(20) constraint enameNotNull not null,
+EmployeeAddress varchar2(20) constraint checkAddress check(EmployeeAddress not in('new york','london','paris')),
+Salary integer constraint checkSalary check (salary between 20000 and 30000),
+companyaddress varchar(20) default 'ASV Suntech Park'
+)
+
+------------------------------------------------------------------------------------------------------------
+b. insert two records
+
+
+insert into employee values(101,'tarun','pune', 20500 ,default)
+insert into employee values(102,'neha','delhi', 28000 ,default)
+------------------------------------------------------------------------------------------------------------
+c. Salary Table
+
+EmployeeID  :- should not be duplicate
+Employee PF  :- should not be negative
+Employee HRA :- should not be negative
+
+The Salary Table must match EmployeeID.
+
+create table salary
+(
+employeeid integer Constraint pksalary primary key,
+employeePF integer constraint checkPf check(employeePF > 0),
+employeeHRA integer constraint checkHra check(employeeHRA > 0)
+)
+
+alter table salary
+add constraint fkem foreign key(EmployeeId) references employee(employeeid) 
+
+------------------------------------------------------------------------------------------------------------
+
+Assignment 2:
+
+Create a table with two columns and enforce the integrity.
+*Think what will be the required integrity to be enforced on CID , CitizenDOB and CitizenDOD
+
+Table :- Citizen
+
+Columns
+	CID
+	CitizenDOB
+	CitizenDOD ( Date of Death )
+
+
+create table citizen
+(
+cid integer constraint pkcid100 primary key,
+dob date,
+dod date,
+constraint ch_db100 check(dod>=dob)
+)
+
+------------------------------------------------------------------------------------------------------------
