@@ -1,0 +1,21 @@
+<html>
+  <head>
+        <title>Add program</title>
+        <script language="javascript">
+                function demo()
+                {
+                        var val1 = parseInt(document.getElementById("value1").value);
+                        var val2 = parseInt(document.getElementById("value2").value);
+                        var ansD = document.getElementById("answer");
+                        ansD.value = val1 + val2;
+                }
+        </script>
+  </head>
+  <body>
+        NUMBER1 <input type="text" id="value1" name="value1" />
+        NUMBER2 <input type="text" id="value2" name="value2" />
+        RESULT <input type="text" id="answer" name="answer" />
+        <input type="button"  value = "Submit" onclick="demo()"/>
+       
+  </body>
+</html>
