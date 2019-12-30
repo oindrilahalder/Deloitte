@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+
+
+function demo()
+{  
+	var name=prompt("Enter your full name:");
+	val=name.substr(0,1);
+	val1=name.indexOf(" ");
+	last=name.substr(val1,name.length);
+	
+	var res=confirm("Do you want to continue:");
+	if (res==true){
+		alert("Welcome, "+ val+" "+last);
+	}
+	else {
+		alert("Thanks"+name)
+	     }
+	}
+function display()
+{
+	var name=prompt("Enter your full name:");
+	val=name.split(" ")
+	val1=val[0].substr(0,1)
+	
+	var res=confirm("Do you want to continue:");
+	if (res==true){
+		alert("Welcome, "+ val1+" "+val[1]);
+	}
+	else {
+		alert("Thanks"+name)
+	     }
+	
+}
+</script>
+</head>
+<body>
+<script>
+display();
+</script>
+</body>
+</html>

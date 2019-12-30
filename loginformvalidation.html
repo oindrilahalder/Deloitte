@@ -3,7 +3,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Login Form</title>
-<script>
+<script type="text/javascript">
+
 function validate()
 {
 	//alert("validate called")
@@ -13,9 +14,11 @@ function validate()
 
 	if(uname.length==0){
 		alert ("Please enter your username")
+		return false;
 	}
 	else if (password.length<6){
 		alert ("Please enter your password or length has to be 6")
+		return false;
 	}
 	else if (password==confirmpassword){
 		alert("Welcome:" + uname);
@@ -23,16 +26,15 @@ function validate()
 	}
 	else{
 		alert ("Password and confirm password must be same")
+		return false;
 	}
 	
 	}
-
-
-
 </script>
 </head>
 <body>
- <form>
+
+ <form action="Home.html" onsubmit="return validate()">
       <table cellspacing="10" cellpadding="10" align="center" border="2">
       <caption><h2>LOGIN FORM</h2></caption>
 
@@ -52,8 +54,9 @@ function validate()
    </tr>
 	<tr>
     <td><input type="submit" value= "go"></td>
-    <td><input type="button" value= "click" onclick="validate()"></td>
+   
     <td><input type="reset" value= "clear"></td>
+
 </tr>
 </table>
 </form>

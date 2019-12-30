@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+var billAmount=prompt("Enter your bill Amount:");
+var today= new Date();
+var lastdate =new Date();
+lastdate.setFullYear(2019,11,15);
+var m1=today.getDate();
+var m2=lastdate.getDate();
+if(lastdate>today){
+	var extradays=m1-m2;
+	x=parseInt(billAmount)+ parseInt(extradays*50);
+	alert("total billAmount="+ x);
+}
+else{
+	
+	alert("total billAmount=" +billAmount);
+	
+}
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>
