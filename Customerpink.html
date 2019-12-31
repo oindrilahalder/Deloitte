@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">
+function checkUser()
+{
+	var d1  = document.getElementById("div1");
+	var d2  = document.getElementById("div2");
+	var d3  = document.getElementById("div3");
+	//alert("working");
+	with(document.forms[0])
+	{
+		if(userName.value == "")
+		{
+			d1.innerText = "Name should not be empty";
+		}
+		else
+		{
+			d1.innerText = "Name :"+userName.value;	
+		}
+
+		if(gender[0].checked || gender[1].checked )
+		{
+			var gen = gender[0].checked?gender[0].value : gender[1].value;
+			d2.innerText = "Your Gender is :"+gen.value;
+		}
+		else
+		{
+			div2.innerText = "Please select the gender";
+		}
+		if(comment[0].checked || comment[1].checked)
+		{
+			var com = comment[0].checked?comment[0].value : comment[1].value;
+			d3.innerText = "Your Comment is :"+com.value;
+		}
+		else
+		{
+			d3.innerText = "Please select the comment";
+		}
+
+	}
+	return false;
+}
+
+</script>
+</head>
+<body>
+<form onSubmit="return checkUser()">
+	<table border="2" bgcolor="pink" align="center">
+		<tr><td>User Name :</td><td><input type="text" id="userName" /></td></td>
+
+<tr><td>Spouse Name :</td><td><input type="text" id="spName" 
+/></td></td>
+		<tr><td>
+Gender :</td><td>
+<input type="radio" name="gen" id="gender" value="Male" />Male<br/>
+<input type="radio" name="gen" id="gender" value="Female" />Female<br/>
+</td></tr>
+		<tr><td>Comments :</td><td>
+<input type="radio" name="com" id="comment" value="Like" />Like<br/>
+<input type="radio" name="com" id="comment" value="Don't Like" />Don't Like<br/>
+</td></tr>
+	<tr><td colspan="2" align="center"><input type="submit" ></div></td></tr>
+
+</form>
+	<tr><td colspan="2"><div id="div1">Name :</div></td></tr>
+	<tr><td colspan="2"><div id="div2">Gender :</div></td></tr>
+	<tr><td colspan="2"><div id="div3">Comments :</div></td></tr>
+
+	</table>
+</body>
+</html>
