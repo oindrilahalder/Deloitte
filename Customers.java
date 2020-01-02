@@ -1,16 +1,27 @@
-package collectiondemo;
+package iodemos;
 
-public class Customer implements Comparable<Customer>{	//plain old java object class(pojo)
+import java.io.Serializable;
+import java.util.Scanner;
+
+public class Customers implements Serializable,Comparable<Customers>{	//plain old java object class(pojo)
 	private int customerId;
 	private String customerName;
 	private String customerAddress;
-	private int billAmount;
+	private transient int billAmount;//wont allow serialization
 	
-	public Customer(){
+	public void accept() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter customer id : "); customerId = scanner.nextInt();
+        System.out.println("Enter customer name : "); customerName = scanner.next();
+        System.out.println("Enter customer address : "); customerAddress = scanner.next();
+        System.out.println("Enter bill amount : "); billAmount = scanner.nextInt();
+    }
+	
+	public Customers(){
 		
 	}
 	
-	public Customer(int customerId, String customerName, String customerAddress, int billAmount) {
+	public Customers(int customerId, String customerName, String customerAddress, int billAmount) {
 		super();
 		this.customerId = customerId;
 		this.customerName = customerName;
@@ -66,7 +77,7 @@ public class Customer implements Comparable<Customer>{	//plain old java object c
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Customer other = (Customer) obj;
+		Customers other = (Customers) obj;
 		if (billAmount != other.billAmount)
 			return false;
 		if (customerAddress == null) {
@@ -85,7 +96,7 @@ public class Customer implements Comparable<Customer>{	//plain old java object c
 	}
 
 	@Override
-	public int compareTo(Customer o) {
+	public int compareTo(Customers o) {
 		if(this.getBillAmount() > o.getBillAmount())
 			return 0;		//ascending order if return -1 is first descending order
 		else

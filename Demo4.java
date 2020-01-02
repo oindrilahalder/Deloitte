@@ -1,26 +1,13 @@
-package exceptiondemos;
+package collectiondemo;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class Demo4 {
-	
-	public void display1() throws InterruptedException 
-	{
-		System.out.println("welcome in display");		
-		Thread.sleep(1000);
-		System.out.println("bye");
-		
-	}
-	public void display2() throws InterruptedException 
-	{
-		System.out.println("welcome in display");		
-		Thread.sleep(1000);
-		System.out.println("bye");
-		
-	}
-	public static void main(String[] args) throws Exception {
-		System.out.println("main started");
-		Demo4 d= new Demo4();
-		d.display1();
-		d.display2();
-		System.out.println("main ended");
+	public static void main(String[] args) {
+		String names []= {"A","B","C","D"};
+		//convert array in list
+		List<String> data =Arrays.asList(names); //Arrays is a class
+		System.out.println(data);
 	}
 }

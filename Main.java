@@ -1,19 +1,24 @@
-package objectdemo;
+package iodemos;
+
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 
 public class Main {
 
-	public static void main(String[] args){
+	public static void main(String[] args) throws IOException {
+		Customers customer= new Customers();
+		customer.accept();
 		
-		Customer customer = new Customer(9651,"sam","patna",75000);
-		Customer customer2 = new Customer(9651,"sam","patna",75000);
-		System.out.println(customer.equals(customer2));//false unless we override equals and hashcode
-		System.out.println(customer==customer2);	//false
-		System.out.println(customer);
-		customer.setBillAmount(12000);
-		System.out.println(customer);
-		Customer customer1 = new Customer(9652,"OD","kota",85000);
-		System.out.println(customer1);
-		System.out.println(customer1.getBillAmount());
+		ObjectOutputStream stream = 
+				new ObjectOutputStream(new BufferedOutputStream(
+						new FileOutputStream(new File("delu.txt")))); //serialization
+		stream.writeObject(customer);
+		
+		stream.close();
+		System.out.println("data stored");
 	}
 
 }

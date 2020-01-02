@@ -1,16 +1,23 @@
-package collectiondemo;
+package iodemos;
 
-import java.util.TreeSet;
+import java.io.File;
+import java.io.IOException;
 
 public class Demo1 {
 
-	public static void main(String[] args) {
-		TreeSet names = new TreeSet();
-		names.add("sumeet");
-		names.add("zeeshan");
-		names.add("abhi");
+	public static void main(String[] args) throws IOException {
+		File file = new File("e:\\deloitte\\newyear.txt");//points to the file
+		File h = new File("e:\\deloitte\\K"); 
 		
-		System.out.println(names);
+		if(file.exists()) {
+			System.out.println("file is there");
+			file.delete();
+		}
+		else {
+			h.mkdir();//creates folder
+			file.createNewFile();
+			System.out.println("file created");
+		}
+		System.out.println("done");
 	}
-
 }
