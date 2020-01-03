@@ -14,7 +14,8 @@ public class Main {
 		
 		ObjectOutputStream stream = 
 				new ObjectOutputStream(new BufferedOutputStream(
-						new FileOutputStream(new File("delu.txt")))); //serialization
+						new FileOutputStream(new File("delu.txt"),true))); //serialization
+												//true is for appending new data in the file delu
 		stream.writeObject(customer);
 		
 		stream.close();

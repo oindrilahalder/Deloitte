@@ -98,7 +98,7 @@ public class Customers implements Serializable,Comparable<Customers>{	//plain ol
 	@Override
 	public int compareTo(Customers o) {
 		if(this.getBillAmount() > o.getBillAmount())
-			return 0;		//ascending order if return -1 is first descending order
+			return 0;		//ascending order (if return -1 is first descending order)
 		else
 			return -1;
 	}
