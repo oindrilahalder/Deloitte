@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Login Form</title>
+<script>
+	function change()
+	{
+		var my1 = document.getElementById("myspan1");
+		var error = document.getElementById("errormsg");
+		my1.innerText = "<font color=blue>welcome</font>";
+		error.innerHTML = "<font color=red>error occured</font>";
+	}
+	function validate()
+	{
+		//alert("validate called")
+		var uname = document.getElementById("username").value;
+		var pass = document.getElementById("Password").value;
+		var confirmpass = document.getElementById("confirmPassword").value;
+		if(uname.length==0){
+			alert("please enter your username")
+		}
+		else if(pass.length < 6 ){
+			alert("please enter your password or length has to be greater than 6")
+		}
+		else if(pass==confirmpass){
+			alert("welcome "+uname)
+		}
+		else{
+			alert("password and confirm password should be same")
+		}
+	}
+</script>
+</head>
+<body>
+<span id="myspan1">span</span>
+<div id="errormsg">div</div>
+	<form>
+		<table cellspacing="10" cellpadding="10" align="center" border="2">
+		<caption><h2>Login Form</h2></caption>
+			<tr>
+				<td>User Name</td>
+				<td><input type ="text" name="username" id="username"></td>
+			</tr>
+			<tr>
+				<td>Password</td>
+				<td><input type ="Password" name="Password" id="Password"></td>
+			</tr>
+			<tr>
+				<td>Confirm Password</td>
+				<td><input type ="Password" name="confirmPassword" id="confirmPassword"></td>
+			</tr>
+			<tr>
+				<td>
+				<input type="submit" value="Go">
+				<input type="button" value="click" onclick="validate()">
+				<input type="button" value="change" onclick="change()">
+				</td>
+				<td><input type ="reset" value="Clear"></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

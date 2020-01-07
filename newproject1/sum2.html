@@ -1,0 +1,35 @@
+<html>
+<head>
+	<title>Deloitte</title>
+	<script type="text/javascript">
+		var num1,num2,result;
+		function getnum1()
+		 {
+			num1=document.getElementById('num1').value;
+		}
+		function getnum2()
+		 {
+			num2=document.getElementById('num2').value;
+		}
+		function calculate()
+		{
+			document.getElementById('res').value=parseInt(num1)+parseInt(num2);
+		}
+		
+	</script>
+</head>
+<body>
+<form>
+	<table>
+		<tr><td>
+			NUMBER1<input type="text" name="num1" id="num1" onblur="getnum1()">
+		
+			NUMBER2<input type="text" name="num2" id="num2" onblur="getnum2()">
+		
+			RESULT<input type="text" name="res" id="res" onfocus="calculate()">
+		</td></tr>
+
+	</table>
+</form>
+</body>
+</html>

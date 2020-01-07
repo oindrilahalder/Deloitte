@@ -1,0 +1,31 @@
+<html>
+<head>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous">
+</script>
+<script>
+        $(document).ready(function () 
+        {
+            //Disable cut copy paste
+            $('body').bind('cut copy paste', function (e) 
+			{
+                alert("Very smart, you can't cut copy paste")
+                e.preventDefault();
+            });
+            //Disable mouse right click
+            $("body").on("contextmenu", function (e) 
+            {
+                alert("Very smart, You can't right click")
+                return false;
+            });
+            //Disable mouse left click
+            $("body").css("user-select","none");
+        });
+</script>
+</head>
+<body>
+    <p>copy me</p>
+</body>
+</html>

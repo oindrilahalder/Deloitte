@@ -1,0 +1,41 @@
+<html>
+<head>
+<script>
+	document.write("H"+"2".sub()+"O\n"); //\n is for spacing
+	document.write("E=mc"+"2".sup());
+	function display()
+	{
+		var name = prompt("enter your full name","null");
+		val=name.substr(0,1);
+		val1=name.indexOf(" ");
+		last=name.substr(val1,name.length)
+		var res = confirm("do you want to continue");
+		if(res==true){
+			alert("welcome, "+val+" "+last );
+		}
+		else{
+			alert("thanks, "+ name);
+		}
+	}
+	function asplit()
+	{
+		var name = prompt("enter your full name","null");
+		val=name.split(" ")
+		val1=val[0].substr(0,1)
+		var res = confirm("do you want to continue");
+		if(res==true){
+			alert("welcome, "+val1+" "+val[1] );
+		}
+		else{
+			alert("thanks, "+ name);
+		}
+	}
+</script>
+</head>
+<body>
+	<script>
+		display(); //call directly without using button in scrpit block.
+		//asplit();
+	</script>
+</body>
+</html>

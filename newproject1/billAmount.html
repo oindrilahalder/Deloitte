@@ -1,0 +1,45 @@
+<html>
+<head>
+<script>
+	function demo()
+	{
+		var bill = prompt("enter your bill amount");
+		var today = new Date();
+		var lastdate = new Date();
+		lastdate.setFullYear(2020, 11, 15); //1st jan 2020
+		var m1=today.getDate();
+		var m2=lastdate.getDate();
+		if(lastdate > today){
+			var extraday = m1-m2;
+			fine=parseInt(bill)+parseInt(extraday*50);
+			alert("total bill = "+fine);
+		}
+		else
+			alert("total bill = "+bill);	
+	}
+	function display()
+	{	
+		var today = new Date();
+		var bill=parseInt(prompt("enter your bill amount"));
+		alert("your bill = "+bill);
+		var day=today.getDate();
+		if(day>15)
+		{
+			var extraday = day-15;
+			var fine=extraday*50;
+			alert("your total bill="+ (bill+fine ));	
+		}
+		else
+			alert("total bill = "+bill);	
+		
+	}
+		
+</script>
+</head>
+<body>
+<script>
+		//demo(); //call directly without using button in scrpit block.
+		display();
+	</script>
+</body>
+</html>

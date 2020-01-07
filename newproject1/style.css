@@ -1,0 +1,46 @@
+.pla{
+	color: maroon;
+	text-transform: uppercase;
+}
+p#p1{
+	color: teal;
+	text-align: center;
+	text-transform: uppercase;
+}
+p.currentPlayers{
+	background-color: lime;
+	text-align: center;
+	color: white;
+	text-transform: uppercase;
+	font-family: sans-serif;
+	font-size: 20px;
+}
+p.exPlayers{
+	background-color: black;
+	text-align: center;
+	color: white;
+	text-transform: uppercase;
+	font-family: sans-serif;
+	font-size: 20px;
+}
+h1{
+	background-color: pink;
+	text-align: center;
+}
+h4{
+		background-color: red;
+		text-decoration: underline;
+}
+/* body{
+	background-image: url(taj.jpg); 
+	background-repeat: no-repeat;
+} */
+A:link{
+	color: pink;
+}
+A:visited{
+	color: red;
+}
+A:hover{
+	color: green;
+}

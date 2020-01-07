@@ -1,0 +1,25 @@
+<html>
+<head>
+<script>
+	total=0; //global variable
+	function sum()
+	{
+		y=20;   //local+global
+		var x= 10; //local variable to this fn
+		total = x+y;
+	}
+	function display()
+	{
+		sum();     //called to access local global
+		alert(total);
+		alert(y);   //local global
+		//alert(x); //error as it is local
+	}
+</script>
+</head>
+<body>
+	<script>
+		display(); //call directly without using button in scrpit block.
+	</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+This example uses text fields , radio button and checkbox.
+<html>
+<head>
+<title>Validate</title>
+<script>
+	function check() {
+		with (document.forms[0]) {
+			if ((name.value == "") || (address.value == "")) {
+				alert("Please ensure that all fields are filled up");
+				return false;
+			}
+			s = like[0].checked ? like[0].value : like[1].value;
+			s += gender[0].checked ? gender[0].value : gender[1].value;
+			s = "Thankyou," + name.value + ". You " + s + " our site.\n";
+			s = s + "Your suggesstion (";
+			for (i = 0; i < better.length; i++)
+				if (better[i].checked)
+					s = s + better[i].value + ";"
+			s = s + " ) are recorded";
+		}
+		alert(s);
+		return true;
+	}
+</script>
+</head>
+<body>
+	<form action="thank.html" onSubmit="return check()">
+		Name: <input type=text name="name"><br> <br>
+		Address: <input type=text name="address"><br> <br>
+		Do you like our site <input type=radio name="like" value="like"
+			checked>Yes <input type=radio name="like" value="don't like">No
+			
+			<br/>
+			Tell me your gender <input type=radio name="gender" value="male"
+			checked>Male <input type=radio name="gender" value="female">Female
+			
+			<br/>
+		<br> <br> Tell us how we can make this site better for you:<br>
+		<input type=checkbox name="better" value="Change the bg color">Change
+		the bg color <br> <input type=checkbox name="better"
+			value="Change the fg color">Change the fg color <br> <input
+			type=checkbox name="better" value="Change the layout">Change
+		the layout <br> <input type=checkbox name="better"
+			value="Include more services">Include more services <br>
+		<br> <input type=submit>
+	</form>
+</body>
+</html>
