@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Customer Form</title>
+<script>
+	function validate()
+	{
+		//alert("validate called")
+	 	var cid = document.getElementById("customerId").value;
+		var errorCustomerId = document.getElementById("errorCustomerId");
+		
+		var cname = document.getElementById("customerName").value;
+		var errorCustomerName = document.getElementById("errorCustomerName");
+		
+		var cadd = document.getElementById("customerAddress").value;
+		var errorCustomerAddress = document.getElementById("errorCustomerAddress");
+		
+		var cbill = document.getElementById("billAmount").value;
+		var errorBillAmount = document.getElementById("errorBillAmount"); 
+		
+		var Custid = document.getElementById("Custid");
+		var Custname = document.getElementById("Custname");
+		var CustAddress = document.getElementById("CustAddress");
+		var BillAmt = document.getElementById("BillAmt");
+		
+		errorCustomerId.innerHTML=""
+		errorCustomerName.innerHTML=""
+		errorCustomerAddress.innerHTML=""
+		errorBillAmount.innerHTML=""
+		
+		if(cid.length==0){
+			errorCustomerId.innerHTML="<font color=red>Please enter customer id</font>"
+			return false;
+		}
+		else if(cid.length<5){
+			errorCustomerId.innerHTML="<font color=red>Please enter customer id of atleast 5 digits</font>"
+			return false;		
+		}
+		else if(cname.length == 0 ){
+			errorCustomerName.innerHTML="<font color=red>Pease enter your name</font>"
+			return false;
+		}
+		else if(cadd.length==0){
+			errorCustomerAddress.innerHTML="<font color=red>Please enter Customer address</font>"
+			return false;
+		}
+		else if(cadd != "Pune" && cadd != "Mumbai" && cadd != "Delhi"){
+			errorCustomerAddress.innerHTML="<font color=red>Pease enter Pune/Mumbai/Delhi</font>"
+			return false;
+		}
+		else if(cbill == 0){
+			errorBillAmount.innerHTML="<font color=red>Please enter a bill amount </font>"
+			return false;
+		}
+		else if(cbill.length < 0) {
+			errorBillAmount.innerHTML="<font color=red>Please enter positive bill amount</font>"
+			return false;
+		}
+		else{
+			Custid.innerHTML="<font color=green>customer id: "+cid
+			Custname.innerHTML="<font color=green>customer Name: "+cname
+			CustAddress.innerHTML="<font color=green>customer Address: "+cadd
+			BillAmt.innerHTML="<font color=green>bill amount: "+cbill
+		}
+		
+	}
+</script>
+</head>
+<body>
+	<form action="CustomerController" onsubmit="return validate()">
+		<table cellspacing="10" cellpadding="10" align="center" border="0">
+		<caption><h2>Customer Form</h2></caption>
+			<tr>
+				<td>Customer Id</td>
+				<td><input type ="text" name="customerId" id="customerId"></td>
+				<td><span id= "errorCustomerId"></span></td>
+			</tr>
+			<tr>
+				<td>Customer Name</td>
+				<td><input type ="text" name="customerName" id="customerName"></td>
+				<td><span id= "errorCustomerName"></span></td>
+			</tr>
+			<tr>
+				<td>Customer Address</td>
+				<td><input type ="text" name="customerAddress" id="customerAddress"></td>
+				<td><span id= "errorCustomerAddress"></span></td>
+			</tr>
+			<tr>
+				<td>Bill Amount</td>
+				<td><input type ="text" name="billAmount" id="billAmount"></td>
+				<td><span id= "errorBillAmount"></span></td>
+			</tr>
+			<tr>
+				<td align="center"><input type="submit" value="Save" ></td>
+				<td align="center"><input type ="reset" value="Clear"></td>
+			</tr>
+				<tr><td><div id= "Custid" ></div></td></tr>
+				<tr><td><div id= "Custname"></div></td></tr>
+				<tr><td><div id= "CustAddress"></div></td></tr>
+				<tr><td><div id= "BillAmt"></div></td></tr>
+		</table>
+	</form>
+</body>
+</html>
