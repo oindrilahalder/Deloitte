@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.cms.deloitte.model.Customer" table="hr.Customer420">
+	
+		<id name="customerId" type="int" column="CustId">
+			<generator class="assigned"/>
+		</id>
+
+		<property name="customerName" column="CustName" />
+		
+		<property name="customerAddress" column="CustAddress" />
+		
+		<property name="billAmount" />
+	
+
+	</class>
+</hibernate-mapping>
