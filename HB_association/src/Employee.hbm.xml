@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.Employee" table="hr.EmployeeDetails"
+		discriminator-value="NewJoinee">
+
+		<id name="employeeId" column="Empid" />
+		<discriminator column="Type" type="string"></discriminator>
+		<property name="employeename" column="Empname" length="10" />
+
+
+		<subclass name="com.RegularEmployee" extends="Employee"
+			discriminator-value="Regular">
+			<property name="salary"></property>
+			<property name="bonus"></property>
+
+		</subclass>
+		<subclass name="com.ContractEmployee" extends="Employee"
+			discriminator-value="Contract">
+			<property name="contractDuration"></property>
+			<property name="payPerDay"></property>
+		</subclass>
+
+	</class>
+</hibernate-mapping>
