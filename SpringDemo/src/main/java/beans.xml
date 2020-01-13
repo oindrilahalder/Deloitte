@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+
+	<bean id="cust" class="com.Customer" autowire="byName" scope="singleton"
+	init-method="displayCust"
+	destroy-method="cleanUpMyApp">
+		<!-- <bean id="cust" class="com.Customer" autowire="byType"> -->
+		<property name="customerId" value="900"></property>
+		<property name="customerName" value="Oindrila"></property>
+		<property name="customerAddress" value="Bangalore"></property>
+		<property name="billAmount" value="98000"></property>
+		<property name="cards" >
+		<set>
+		<value>HDFC</value>
+				<value>SBI</value>
+		
+				<value>AXIS</value>
+		
+				<value>ICICI</value>
+		
+		</set>
+		</property>
+		<!-- <property name="contactDetails" ref="cd"></property> -->
+	</bean>
+
+	<bean id="cust2" class="com.Customer" autowire="constructor" >
+		<constructor-arg name="customerId" value="901" type="int"></constructor-arg>
+		<constructor-arg name="customerName" value="Sam"></constructor-arg>
+		<constructor-arg name="customerAddress" value="Bangalore"></constructor-arg>
+		<constructor-arg name="billAmount" value="50000" type="int"></constructor-arg>
+	</bean>
+
+	<bean id="contactDetails" class="com.ContactDetails">
+		<property name="mobileNumber" value="9551600476"></property>
+		<property name="emailId" value="oindrilahalder@gmail.com"></property>
+	</bean>
+</beans>
+	
